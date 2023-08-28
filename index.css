@@ -74,7 +74,7 @@ nav.navbar{
     top: 90%;
     left: 25%;
     transition: all 0.5s ease-in-out 0s;
-    z-index: 1;
+    z-index: 0;
     background-color: #daa300;
     opacity: 0;
 }
@@ -87,4 +87,13 @@ nav.navbar{
 .card:hover .btn{
     opacity: 1;
     transform: translateY(-90%);
+}
+
+.modal-backdrop{
+    z-index: 0;
+}
+
+.banner-phone-image img{
+    width: 100%;
+    height: 100%;
 }
