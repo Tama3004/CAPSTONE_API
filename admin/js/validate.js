@@ -20,14 +20,6 @@ export function kiemTraKLoai (idErr,value) {
     }
 }
 
-export let message = (message,isSuccess = true) => {
-    Toastify({
-        text: message,
-        style: {
-          background: isSuccess?"linear-gradient(to right, #00b09b, #96c93d)":"red",
-        }
-        }).showToast();
-}
 
 export let valid = (data) => {
     let valid = 
@@ -41,4 +33,3 @@ export let valid = (data) => {
     kiemTraRong("vali-img",data.img)
     return valid
 }
-

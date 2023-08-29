@@ -1,5 +1,3 @@
-import { fetchPhone } from "./controller";
-
 fetchPhone();
 let cart = [];
 let jsonData = localStorage.getItem("cart");
@@ -7,13 +5,14 @@ if(jsonData != null){
     cart = JSON.parse(jsonData);
     renderCart(cart);
 }
- 
-
 let addToCart = (id) => {
   let existingItem = cart.find((item) => item.id === id);
   if (existingItem) {
     existingItem.quantity += 1;
-    document.getElementById("quantity").innerHTML = existingItem.quantity;
+    renderCart(cart);
+    var jsonData = JSON.stringify(cart);
+    localStorage.setItem("cart", jsonData);
+    message("Đã thêm vào giỏ hàng")
   } else {
     axios({
       url: `https://64d6fae32a017531bc12e71b.mockapi.io/Phone/${id}`,
@@ -24,7 +23,7 @@ let addToCart = (id) => {
         cart.push({ ...product, quantity: 1 });
         console.log(cart);
         renderCart(cart);
-        var jsonData = JSON.stringify(cart); 
+        var jsonData = JSON.stringify(cart);
         localStorage.setItem("cart", jsonData);
       })
       .catch((err) => {
@@ -35,10 +34,13 @@ let addToCart = (id) => {
 
 let removeFromCart = (id) => {
     let index = cart.findIndex((item) => {
-        item.id == id;
+        return item.id == id;
     })
     cart.splice(index,1);
     renderCart(cart)
+    var jsonData = JSON.stringify(cart);
+    localStorage.setItem("cart", jsonData);
+    console.log(id);
 }
 
 let decreaseQuantity = (event) => {
@@ -69,3 +71,12 @@ let increaseQuantity = (event) => {
     localStorage.setItem("cart", jsonData);
   }
 };
+
+let message = (message,isSuccess = true) => {
+  Toastify({
+      text: message,
+      style: {
+        background: isSuccess?"linear-gradient(to right, #00b09b, #96c93d)":"red",
+      }
+      }).showToast();
+}

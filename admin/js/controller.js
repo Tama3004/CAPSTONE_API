@@ -17,7 +17,7 @@ export let renderPhoneList = (list) => {
             <td>${backCamera}</td>
             <td>${frontCamera}</td>
             <td class="d-flex justify-content-center">
-            <img src=${img} alt="" style="height: 50%;width: 50%;">
+            <img onclick="moTa(${id})" src=${img} alt="" style="height: 50%;width: 50%; cursor: pointer;">
             </td>
             <td>
             <button onclick="editPhone(${id})" class="btn btn-info">Sửa</button>
@@ -45,6 +45,14 @@ export let fetchPhone = () => {
       });
   };
 
+  export let message = (message,isSuccess = true) => {
+    Toastify({
+        text: message,
+        style: {
+          background: isSuccess?"linear-gradient(to right, #00b09b, #96c93d)":"red",
+        }
+        }).showToast();
+}
 
   export let getDataForm = () => {
     let id = document.getElementById("phoneId").value;

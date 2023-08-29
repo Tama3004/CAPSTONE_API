@@ -18,3 +18,14 @@ nav.navbar{
     font-size: 10px;
     margin-left: 50px;
 }
+.table thead th {
+    vertical-align: middle;
+    text-align: center;
+}
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+.table {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

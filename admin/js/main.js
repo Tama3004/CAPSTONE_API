@@ -1,5 +1,5 @@
-import { BASE_URL, clearForm, fetchPhone, getDataForm, renderPhoneList, showDataForm } from "./controller.js";
-import { message, valid } from "./validate.js";
+import { BASE_URL, clearForm, fetchPhone, getDataForm, message, renderPhoneList, showDataForm } from "./controller.js";
+import { valid } from "./validate.js";
 
 fetchPhone()
 
@@ -80,11 +80,58 @@ window.searchPhone = () => {
             if (data[i].name.trim()==searchData) {
                 searchList.push(data[i])
             }
+            
             renderPhoneList(searchList)
         }
+        if (searchList.length == 0) {
+          message("Không tìm thấy sản phẩm",false)}
         })
         .catch((err) => {
           message("Đã có lỗi xảy ra",false);
         });
 }
 
+
+window.sortPrice = (sort) => {
+  axios({
+      url: BASE_URL,
+      method: "GET",
+    })
+      .then((res) => {
+        let data = res.data
+        for ( var i = 0 ; i < data.length ; i++) {
+          for (var k = 0 ; k < data.length ; k++) {
+              if (data[i].price < data[k].price) {
+                  var t = data[i];
+                  data[i] = data[k]
+                  data[k] = t
+              }
+          }}
+        if (sort == "Tăng dần") {
+          renderPhoneList(data)
+        } else if (sort == "Giảm dần") {
+          renderPhoneList(data.reverse())
+        }
+          
+      })
+      .catch((err) => {
+      }); 
+}
+
+window.moTa = (id) => {
+  axios.get(`${BASE_URL}/${id}`)
+  .then((res) => {
+          let data = res.data
+          Swal.fire({
+            title: `${data.name}`,
+            text: `${data.desc}`,
+            imageUrl: `${data.img}`,
+            imageWidth: 400,
+            imageHeight: 400,
+            imageAlt: 'Custom image',
+          })
+        })
+        .catch((err) => {
+         message("Đã có lỗi xảy ra",false);
+        });
+}

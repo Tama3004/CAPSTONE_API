@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Admin</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -29,6 +29,11 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
+    <!-- SWEET ALERT2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css"
+    />
     <!-- MycSS -->
     <link rel="stylesheet" href="./admin.css" />
     <!-- Icon -->
@@ -49,12 +54,12 @@
 
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="../customer/index.html"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="../admin/admin.html"
                 >Admin <span class="sr-only">(current)</span></a
               >
             </li>
@@ -66,7 +71,7 @@
     <!--Table-->
     <div class="container pt-5">
       <div class="d-flex justify-content-between pt-5">
-        <h1>Danh sách sản phẩm</h1>
+        <h1>DANH SÁCH SẢN PHẨM</h1>
         <!-- Button trigger modal -->
         <button
           type="button"
@@ -76,7 +81,6 @@
         >
           Thêm sản phẩm
         </button>
-
         <!-- Modal -->
         <div
           class="modal fade"
@@ -271,7 +275,7 @@
           </div>
         </div>
       </div>
-      <div class="form-group d-flex">
+      <div class="form-group d-flex p-3">
         <label for=""></label>
         <input
           type="text"
@@ -301,16 +305,29 @@
                 Giá
               </span>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <span onclick="sortPrice()" class="dropdown-item" href="#"
+                <span
+                  onclick="sortPrice('Tăng dần')"
+                  class="dropdown-item"
+                  href="#"
                   >Tăng dần</span
                 >
-                <span onclick="" class="dropdown-item" href="#">Giảm dần</span>
+                <span
+                  onclick="sortPrice('Giảm dần')"
+                  class="dropdown-item"
+                  href="#"
+                  >Giảm dần</span
+                >
               </div>
             </th>
             <th>Màn hình</th>
             <th>Back Cam</th>
             <th>Front Cam</th>
-            <th>Hình Ảnh</th>
+            <th>
+              Hình Ảnh <br />
+              <span style="font-size: 15px; font-style: italic"
+                >(Click vào ảnh để xem mô tả)</span
+              >
+            </th>
             <th>Thao tác</th>
           </tr>
         </thead>
@@ -339,6 +356,8 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
+    <!-- Sweet alert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
     <!-- My JS -->
     <script type="module" src="./js/main.js"></script>
   </body>
