@@ -135,3 +135,7 @@ window.moTa = (id) => {
          message("Đã có lỗi xảy ra",false);
         });
 }
+
+window.resetPage = () => {
+  location.reload()
+}

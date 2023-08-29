@@ -12,7 +12,6 @@ let addToCart = (id) => {
     renderCart(cart);
     var jsonData = JSON.stringify(cart);
     localStorage.setItem("cart", jsonData);
-    message("Đã thêm vào giỏ hàng")
   } else {
     axios({
       url: `https://64d6fae32a017531bc12e71b.mockapi.io/Phone/${id}`,
@@ -71,12 +70,3 @@ let increaseQuantity = (event) => {
     localStorage.setItem("cart", jsonData);
   }
 };
-
-let message = (message,isSuccess = true) => {
-  Toastify({
-      text: message,
-      style: {
-        background: isSuccess?"linear-gradient(to right, #00b09b, #96c93d)":"red",
-      }
-      }).showToast();
-}

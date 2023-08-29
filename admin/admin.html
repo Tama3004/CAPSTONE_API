@@ -34,8 +34,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css"
     />
-    <!-- MycSS -->
-    <link rel="stylesheet" href="./admin.css" />
     <!-- Icon -->
     <link
       rel="stylesheet"
@@ -44,6 +42,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- MycSS -->
+    <link rel="stylesheet" href="../css/admin.css" />
   </head>
   <body>
     <!-- Header -->
@@ -73,14 +73,17 @@
       <div class="d-flex justify-content-between pt-5">
         <h1>DANH SÁCH SẢN PHẨM</h1>
         <!-- Button trigger modal -->
-        <button
-          type="button"
-          class="btn btn-info m-2"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          Thêm sản phẩm
-        </button>
+        <div>
+          <button onclick="resetPage()" class="btn btn-dark m-2">Reset</button>
+          <button
+            type="button"
+            class="btn btn-info m-2"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Thêm sản phẩm
+          </button>
+        </div>
         <!-- Modal -->
         <div
           class="modal fade"

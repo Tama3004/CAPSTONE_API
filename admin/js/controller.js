@@ -91,3 +91,4 @@ export let fetchPhone = () => {
     document.getElementById("phoneDesc").value = ``
     document.getElementById("phoneType").value = `Chọn loại sản phẩm`
   }
+
