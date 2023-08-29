@@ -37,7 +37,6 @@ export let fetchPhone = () => {
       method: "GET",
     })
       .then((res) => {
-        console.log(res)
         renderPhoneList(res.data)
       })
       .catch((err) => {
