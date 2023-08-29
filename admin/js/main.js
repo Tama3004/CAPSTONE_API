@@ -1,16 +1,21 @@
-import { BASE_URL, fetchPhone, getDataForm, renderPhoneList, showDataForm } from "./controller.js";
+import { BASE_URL, clearForm, fetchPhone, getDataForm, renderPhoneList, showDataForm } from "./controller.js";
+import { message, valid } from "./validate.js";
 
 fetchPhone()
 
 window.addPhone = () => {
     let data = getDataForm()
+    let isValid = valid(data)
+    if (!isValid) return message("Vui lòng điền thông tin",false);
     axios.post(BASE_URL,data)
     .then((res) => {
             console.log(res);
             fetchPhone()
+            message("Thêm thành công")
+            $("#exampleModal").modal("hide")
           })
           .catch((err) => {
-           console.log(err);
+           message("Đã có lỗi xảy ra",false);
           });
 }
 
@@ -20,9 +25,10 @@ window.deletePhone = (id) => {
     .then((res) => {
             console.log(res);
             fetchPhone()
+            message("Xóa thành công")
           })
           .catch((err) => {
-           console.log(err);
+           message("Đã có lỗi xảy ra",false);
           });
 }
 
@@ -37,7 +43,7 @@ window.editPhone = (id) => {
             showDataForm(res.data)
           })
           .catch((err) => {
-           console.log(err);
+           message("Đã có lỗi xảy ra",false);
           });
 }
 
@@ -47,13 +53,17 @@ window.updatePhone = () => {
     axios.put(`${BASE_URL}/${data.id}`,data)
     .then((res) => {
             console.log(res);
+            let isValid = valid(data)
+            if (!isValid) return message("Vui lòng điền thông tin",false);
             fetchPhone()
+            message("Cập nhật thành công")
             $("#exampleModal").modal("hide")
+            clearForm()
             document.getElementById("phoneId").readOnly = false
             document.getElementById("add-phone").disabled  = false
           })
           .catch((err) => {
-           console.log(err);
+           message("Đã có lỗi xảy ra",false);
           });
 }
 
@@ -74,7 +84,7 @@ window.searchPhone = () => {
         }
         })
         .catch((err) => {
-          console.log(err);
+          message("Đã có lỗi xảy ra",false);
         });
 }
 

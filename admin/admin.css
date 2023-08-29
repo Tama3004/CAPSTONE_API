@@ -8,3 +8,13 @@ nav.navbar{
     height: 100%;
     width: 50px;
 }
+.form-group {
+    margin: 0px;
+}
+.add-valid {
+    padding-bottom: 10px;
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+    margin-left: 50px;
+}

@@ -12,7 +12,7 @@ export let renderPhoneList = (list) => {
             <td>${id}</td>
             <td>${name}</td>
             <td>${type}</td>
-            <td>${price}</td>
+            <td>${price.toLocaleString()}</td>
             <td>${screen}</td>
             <td>${backCamera}</td>
             <td>${frontCamera}</td>
@@ -29,7 +29,6 @@ export let renderPhoneList = (list) => {
     });
     document.getElementById("products-table").innerHTML = contentHTML;
   };
-
 
 
 export let fetchPhone = () => {
@@ -71,4 +70,16 @@ export let fetchPhone = () => {
     document.getElementById("phoneImg").value = img
     document.getElementById("phoneDesc").value = desc
     document.getElementById("phoneType").value = type
+  }
+
+  export let clearForm = () => {
+    document.getElementById("phoneId").value = ``
+    document.getElementById("phoneName").value = ``
+    document.getElementById("phonePrice").value = ``
+    document.getElementById("phoneScr").value = ``
+    document.getElementById("phoneBcam").value = ``
+    document.getElementById("phoneFcam").value = ``
+    document.getElementById("phoneImg").value = ``
+    document.getElementById("phoneDesc").value = ``
+    document.getElementById("phoneType").value = `Chọn loại sản phẩm`
   }

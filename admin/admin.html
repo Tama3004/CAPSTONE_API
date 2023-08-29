@@ -23,6 +23,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- Toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- MycSS -->
     <link rel="stylesheet" href="./admin.css" />
     <!-- Icon -->
     <link
@@ -106,12 +113,12 @@
                     id="phoneId"
                     placeholder="Mã sản phẩm"
                   />
-                  <span
-                    id="vali-id"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-id"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
@@ -122,22 +129,29 @@
                     id="phoneName"
                     placeholder="Tên sản phẩm"
                   />
-                  <span
-                    id="vali-name"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-name"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
                   <i class="fa fa-mobile p-3"></i>
                   <select class="form-control" name="" id="phoneType">
-                    <option value="">Chọn loại sản phẩm</option>
+                    <option value="Chọn loại sản phẩm">
+                      Chọn loại sản phẩm
+                    </option>
                     <option value="Iphone">Iphone</option>
                     <option value="Samsung">Samsung</option>
                   </select>
                 </div>
+                <span
+                  id="vali-type"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
@@ -148,12 +162,12 @@
                     id="phonePrice"
                     placeholder="Giá"
                   />
-                  <span
-                    id="vali-price"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-price"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
@@ -164,12 +178,12 @@
                     id="phoneScr"
                     placeholder="Màn hình"
                   />
-                  <span
-                    id="vali-src"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-scr"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
@@ -180,12 +194,12 @@
                     id="phoneBcam"
                     placeholder="Cam sau"
                   />
-                  <span
-                    id="vali-bcam"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-bcam"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
@@ -196,12 +210,12 @@
                     id="phoneFcam"
                     placeholder="Cam trước"
                   />
-                  <span
-                    id="vali-fcam"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-fcam"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div
                   class="form-group d-flex justify-content-center align-items-center"
                 >
@@ -212,12 +226,12 @@
                     id="phoneImg"
                     placeholder="Link hình ảnh"
                   />
-                  <span
-                    id="vali-img"
-                    style="display: none"
-                    class="add-valid"
-                  ></span>
                 </div>
+                <span
+                  id="vali-img"
+                  style="display: none"
+                  class="add-valid"
+                ></span>
                 <div class="form-group">
                   <label for="">Mô tả sản phẩm</label>
                   <input
@@ -319,6 +333,11 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
+    ></script>
+    <!-- Toastify -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
     <!-- My JS -->
     <script type="module" src="./js/main.js"></script>
