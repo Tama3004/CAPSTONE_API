@@ -1,0 +1,10 @@
+nav.navbar{
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.form-group i {
+    height: 100%;
+    width: 50px;
+}

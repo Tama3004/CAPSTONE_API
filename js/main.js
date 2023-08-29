@@ -1,3 +1,5 @@
+import { fetchPhone } from "./controller";
+
 fetchPhone();
 let cart = [];
 let jsonData = localStorage.getItem("cart");
