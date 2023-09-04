@@ -23,8 +23,8 @@ let renderPhoneList = (list) => {
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">$${price}</h6>
-                    <p class="card-text">${type}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">$${price.toLocaleString()}</h6>
+                    <p class="card-text text-center">${type}</p>
                     <p><b>Description:</b> ${desc}</p>
                     <button type="button" class="btn btn-block w-50" onclick="addToCart('${id}')">Add to cart</button>
                 </div>
@@ -66,14 +66,14 @@ let renderCart = (cart) => {
             <div class="card-body">
               <h5 class="card-title">${name}</h5>
               <p class="card-text">Loại: ${type}</p>
-              <p class="card-text">Giá: $${price} / 1 cái</p>
+              <p class="card-text">Giá: $${price.toLocaleString()} / 1 cái</p>
               <div class="quantity">
               <button onclick="decreaseQuantity(event)" data-id="${id}">-</button>
               <span id="quantity">${quantity}</span>
               <button onclick="increaseQuantity(event)" data-id="${id}">+</button>
               </div>
                 <a onclick="removeFromCart(${id})">Remove</a>
-                <p>Total: ${total} </p>
+                <p>Total: ${total.toLocaleString()} </p>
             </div>
             </div>
           </div>
@@ -84,5 +84,7 @@ let renderCart = (cart) => {
     totalValue += total;
   });
   document.getElementById("CartModal").innerHTML = contentHTML;
-  document.getElementById("totalValue").innerHTML = totalValue;
+  document.getElementById("totalValue").innerHTML = totalValue.toLocaleString();
 };
+
+

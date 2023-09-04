@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Phone Store</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -23,7 +23,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="./index.css" />
+    <!-- Toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <!-- Icon -->
     <link
       rel="stylesheet"
@@ -32,80 +37,80 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-sm">
         <div class="container">
           <a class="navbar-brand" href="#">Phone Store</a>
-          
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link" href="#"
-                  >Home <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#"
-                  >Admin <span class="sr-only">(current)</span></a
-                >
-              </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <!-- Button trigger modal -->
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target="#exampleModalLong"
+
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="../customer/index.html"
+                >Home <span class="sr-only">(current)</span></a
               >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="../admin/admin.html"
+                >Admin <span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
+            >
               <i class="fa-solid fa-cart-shopping"></i>
-              </button>
+            </button>
 
-              <!-- Modal -->
-              <div
-                class="modal fade"
-                id="exampleModalLong"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLongTitle"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">
-                        Modal title
-                      </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body" id="CartModal">
-
-                    </div>
-                    <div class="modal-footer">
-                      <div>Tổng $ đơn hàng: $<span id="totalValue"></span></div>
-                      <button type="button" class="btn btn-primary">
-                        Thanh toán
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalLong"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLongTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                      Giỏ hàng của bạn
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" id="CartModal"></div>
+                  <div class="modal-footer">
+                    <div>Tổng $ đơn hàng: $<span id="totalValue"></span></div>
+                    <button type="button" class="btn btn-primary">
+                      Thanh toán
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
+          </form>
         </div>
       </nav>
     </header>
@@ -129,7 +134,10 @@
           </div>
           <div class="col-lg-6 text-lg-right text-center mt-5 mt-lg-0">
             <div class="banner-phone-image">
-              <img src="https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png" alt="phone-img" />
+              <img
+                src="https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png"
+                alt="phone-img"
+              />
             </div>
           </div>
         </div>
@@ -141,6 +149,20 @@
         <div class="row" id="listItem"></div>
       </div>
     </section>
+
+    <!-- Footer-->
+    <footer style="background-color: black" class="py-5 mt-5">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          Thông tin liên hệ:
+          <span class="ml-3">
+            <i class="fa fa-envelope-square"></i> phonestore@smart.com</span
+          >
+          <span class="ml-3"><i class="fa fa-phone"></i>+1 (851) 399-3967</span>
+        </p>
+      </div>
+    </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -158,6 +180,12 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <!-- Toastify -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <!-- MY JS -->
     <script src="./js/controller.js"></script>
     <script src="./js/main.js"></script>
   </body>

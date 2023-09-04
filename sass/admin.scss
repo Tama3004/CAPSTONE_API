@@ -1,0 +1,37 @@
+nav.navbar{
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.form-group i {
+    height: 100%;
+    width: 50px;
+}
+
+.form-group {
+    margin: 0px;
+}
+
+.add-valid {
+    padding-bottom: 10px;
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+    margin-left: 50px;
+}
+
+.table thead th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
