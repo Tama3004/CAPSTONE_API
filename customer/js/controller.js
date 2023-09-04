@@ -58,7 +58,7 @@ let renderCart = (cart) => {
     let phoneCart = /*html*/
       `
         <div class="card mb-3">
-        <div class="row no-gutters">
+        <div class="row">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
             <img src="${img}" alt="" class="card-img" style="width: 100%; max-height: 100%;" alt="Image">
           </div>
